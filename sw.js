@@ -1,3 +1,5 @@
 self.addEventListener('install',event=>{event.waitUntil(self.skipWaiting())});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('ab7-original-app-')).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',()=>{});
+self.addEventListener('push',event=>{let d={};try{d=event.data?event.data.json():{}}catch{d={title:'Halitus AB7',body:event.data?event.data.text():''}}const title=d.title||'Halitus AB7';event.waitUntil(self.registration.showNotification(title,{body:d.body||'',icon:'./icon-192.png',badge:'./icon-maskable-192.png',tag:d.tag||'ab7-reminder',renotify:false,data:{url:d.url||'#rutina'}}))});
+self.addEventListener('notificationclick',event=>{event.notification.close();const target=new URL(event.notification.data?.url||'#rutina',self.registration.scope).href;event.waitUntil(self.clients.matchAll({type:'window',includeUncontrolled:true}).then(list=>{for(const c of list){if(c.url.startsWith(self.registration.scope)&&'focus' in c){c.navigate(target);return c.focus()}}return self.clients.openWindow(target)}))});
