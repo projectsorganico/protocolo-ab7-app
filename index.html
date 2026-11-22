@@ -446,7 +446,7 @@ const moduleIcons=['spark','search','book','alert','shield','cup','leaf'];
 const moduleImageAlts=['Kit de cuidado bucal y cuaderno para comenzar una rutina','Modelo dental y utensilios para comprender el cuidado bucal','Alimentos y bebidas que pueden influir en el aliento','Cepillo, hilo dental y limpiador de lengua para revisar hábitos','Utensilios para el cuidado diario de dientes y encías','Infusiones con menta, jengibre, limón y té verde','Planificador y kit de cuidado bucal para mantener una rutina'];
 const modArt=m=>`<div class="module-art has-photo t${m.id}"><img class="module-visual" src="./assets/modulo-${m.id}.webp" alt="" loading="lazy"><span class="n">0${m.id} / 07</span>${icon(moduleIcons[m.id-1])}</div>`;
 const btn=(label,href,type='')=>`<a class="btn ${type}" href="${href}">${label}${icon('arrow')}</a>`;
-const sourceBox=`<div class="sources">Referencias de cuidado bucal: <a href="https://www.nhs.uk/symptoms/bad-breath/" target="_blank" rel="noopener">NHS · Mal aliento</a> y <a href="https://www.mouthhealthy.org/all-topics-a-z/dietary-acids-and-your-teeth" target="_blank" rel="noopener">ADA · Ácidos y esmalte</a>.<br>Contenido educativo. No sustituye la evaluación de un dentista.</div>`;
+const sourceBox=`<div class="sources">Referencias de cuidado bucal: <a href="https://www.nhs.uk/symptoms/bad-breath/" target="_blank" rel="noopener">NHS · Mal aliento</a> y <a href="https://www.mouthhealthy.org/all-topics-a-z/dietary-acids-and-your-teeth" target="_blank" rel="noopener">ADA · Ácidos y esmalte</a>.</div>`;
 let articles=[];
 const READING_SPEEDS=[1,1.25,1.5,.8];let readingSpeed=1;
 try{const stored=Number(localStorage.getItem('ab7-reading-speed'));if(READING_SPEEDS.includes(stored))readingSpeed=stored}catch{}
