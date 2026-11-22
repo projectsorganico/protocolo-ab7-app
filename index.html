@@ -411,7 +411,7 @@ body.premium-page{--bg:#f4f5ed;--surface:#fffef9;--ink:#1b342d;--muted:#69796d;-
 .bell-dot[hidden]{display:none}
 .header-install.is-installed{display:none!important}
 #bell-dialog{max-width:440px;width:calc(100% - 32px);border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);padding:24px}
-#bell-dialog::backdrop{background:#0008}
+#bell-dialog{height:fit-content;max-height:88vh;overflow-y:auto;margin:auto;inset:0}#bell-dialog::backdrop{background:#0008}
 #bell-dialog h2{margin:0 0 6px;font-size:20px}
 #bell-dialog .bell-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px}
 #bell-dialog .bell-close{border:0;background:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1}
